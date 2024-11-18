@@ -1,0 +1,25 @@
+services:
+  server:
+    build: ./server
+    tty: true
+    stdin_open: true
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    volumes:
+      - ./server:/server
+
+  db:
+    image: mariadb
+    volumes:
+      - ./server/data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
