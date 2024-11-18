@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-.league-spartan-<uniquifier > {
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
+
+@layer base {
+  body {
+    @apply bg-aquaSpring font-spartan;
+  }
+}
+
+@layer components {
+  .box {
+    @apply bg-aquaHaze cursor-pointer rounded-lg p-2;
+  }
+
+  .popup {
+    @apply flex items-center rounded-xl px-2 font-semibold uppercase text-white;
+  }
 }

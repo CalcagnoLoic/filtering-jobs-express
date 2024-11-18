@@ -55,13 +55,13 @@ INSERT INTO `jobs` (`id`, `name`, `location`, `time`, `contract`, `level`, `posi
 DROP TABLE IF EXISTS `status`;
 CREATE TABLE `status` (
   `id_jobs` int(11) NOT NULL,
-  `is-new` bit(1) NOT NULL,
-  `is-featured` bit(1) NOT NULL,
+  `isNew` bit(1) NOT NULL,
+  `isFeatured` bit(1) NOT NULL,
   KEY `id_jobs` (`id_jobs`),
   CONSTRAINT `status_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `status` (`id_jobs`, `is-new`, `is-featured`) VALUES
+INSERT INTO `status` (`id_jobs`, `isNew`, `isFeatured`) VALUES
 (1,	CONV('1', 2, 10) + 0,	CONV('1', 2, 10) + 0),
 (2,	CONV('1', 2, 10) + 0,	CONV('1', 2, 10) + 0),
 (3,	CONV('1', 2, 10) + 0,	CONV('0', 2, 10) + 0),

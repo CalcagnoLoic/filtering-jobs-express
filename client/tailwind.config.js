@@ -9,6 +9,10 @@ export default {
         blueSmoke: "#7B8E8E",
         outerSpace: "#2C3A3A",
         breakerBay: "#5BA4A4",
+        torchRed: "#FA0F3C"
+      },
+      fontFamily: {
+        spartan: ['"League Spartan"', "sans-serif"],
       },
     },
   },
