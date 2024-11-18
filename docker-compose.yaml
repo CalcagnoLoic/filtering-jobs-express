@@ -9,6 +9,8 @@ services:
       - db
     volumes:
       - ./server:/server
+    env_file:
+      - .env
 
   db:
     image: mariadb

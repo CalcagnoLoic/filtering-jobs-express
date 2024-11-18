@@ -1,9 +1,8 @@
-import express from "express"
+import express from "express";
+import router from "./routes/router.js";
 
-const app = express()
+const app = express();
 
-app.get("/", (req, res ) => {
-    res.send("Test")
-})
+app.use("/", router);
 
-app.listen(3000)
+app.listen(3000);

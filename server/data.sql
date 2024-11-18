@@ -9,13 +9,13 @@ SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
-  `id-jobs` int(11) NOT NULL,
+  `id_jobs` int(11) NOT NULL,
   `url` varchar(128) NOT NULL,
-  KEY `id-jobs` (`id-jobs`),
-  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id-jobs`) REFERENCES `jobs` (`id`)
+  KEY `id_jobs` (`id_jobs`),
+  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `images` (`id-jobs`, `url`) VALUES
+INSERT INTO `images` (`id_jobs`, `url`) VALUES
 (1,	'./images/photosnap.svg'),
 (2,	'./images/manage.svg'),
 (3,	'./images/account.svg'),
@@ -54,14 +54,14 @@ INSERT INTO `jobs` (`id`, `name`, `location`, `time`, `contract`, `level`, `posi
 
 DROP TABLE IF EXISTS `status`;
 CREATE TABLE `status` (
-  `id-jobs` int(11) NOT NULL,
+  `id_jobs` int(11) NOT NULL,
   `is-new` bit(1) NOT NULL,
   `is-featured` bit(1) NOT NULL,
-  KEY `id-jobs` (`id-jobs`),
-  CONSTRAINT `status_ibfk_1` FOREIGN KEY (`id-jobs`) REFERENCES `jobs` (`id`)
+  KEY `id_jobs` (`id_jobs`),
+  CONSTRAINT `status_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `status` (`id-jobs`, `is-new`, `is-featured`) VALUES
+INSERT INTO `status` (`id_jobs`, `is-new`, `is-featured`) VALUES
 (1,	CONV('1', 2, 10) + 0,	CONV('1', 2, 10) + 0),
 (2,	CONV('1', 2, 10) + 0,	CONV('1', 2, 10) + 0),
 (3,	CONV('1', 2, 10) + 0,	CONV('0', 2, 10) + 0),
@@ -75,14 +75,14 @@ INSERT INTO `status` (`id-jobs`, `is-new`, `is-featured`) VALUES
 
 DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
-  `id-jobs` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jobs` int(11) NOT NULL AUTO_INCREMENT,
   `tools` varchar(255) NOT NULL,
   `languages` varchar(255) NOT NULL,
-  PRIMARY KEY (`id-jobs`),
-  CONSTRAINT `tags_ibfk_1` FOREIGN KEY (`id-jobs`) REFERENCES `jobs` (`id`)
+  PRIMARY KEY (`id_jobs`),
+  CONSTRAINT `tags_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `tags` (`id-jobs`, `tools`, `languages`) VALUES
+INSERT INTO `tags` (`id_jobs`, `tools`, `languages`) VALUES
 (1,	'[]',	'[\"HTML\", \"CSS\", \"JavaScript\"]'),
 (2,	'[\"React\"]',	'[\"Python\"]'),
 (3,	'[\"React\", \"Sass\"]',	'[\"JavaScript\"]'),
