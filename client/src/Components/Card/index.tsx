@@ -1,19 +1,22 @@
 import { useFetchJobOffers } from "../../hooks/useFetch";
+
 import CardDetails from "../CardDetails";
 import CardHasthags from "../CardHashtags";
+import ErrorServer from "../ErrorServer";
+import Loader from "../Loader";
 
 const Component = () => {
   const { isData, isLoading, isError } = useFetchJobOffers();
 
   return (
     <>
-      {isLoading && <h1>is loading</h1>}
+      {isLoading && <Loader />}
 
       {isData &&
         isData.map((data) => (
           <div
             key={data.id}
-            className={`shadow-blueSmoke mx-52 my-5 flex rounded-xl bg-white p-8 shadow-lg ${data.isFeatured.data[0] == 1 && "border-l-breakerBay border-l-4"} `}
+            className={`shadow-blueSmoke md:mx-12 xl:mx-52 my-5 flex rounded-xl bg-white p-8 shadow-lg ${data.isFeatured.data[0] == 1 && "border-l-breakerBay border-l-4"} `}
           >
             <img src={data.url} alt={data.name} className="mr-10" />
             <div className="flex w-full justify-between">
@@ -39,7 +42,7 @@ const Component = () => {
           </div>
         ))}
 
-      {isError && <span>erreur</span>}
+      {isError && <ErrorServer />}
     </>
   );
 };

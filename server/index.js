@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./routes/router.js";
+import routerJobs from "./routes/routerJobs.js";
+import routerDetails from "./routes/routerDetails.js";
 import cors from "cors";
 
 const app = express();
@@ -12,6 +13,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use("/", router);
+app.use("/", routerJobs);
+app.use("/job-details", routerDetails);
+
+app.get("*", (req, res) => {
+  return res.status(404).send("Invalid URL");
+});
 
 app.listen(3000);
