@@ -11,10 +11,35 @@
 
 @layer components {
   .box {
-    @apply bg-aquaHaze cursor-pointer rounded-lg p-2;
+    @apply bg-aquaHaze hover:bg-breakerBay hover:text-aquaSpring cursor-pointer rounded-lg p-2 transition duration-500 ease-in-out;
   }
 
   .popup {
-    @apply flex items-center rounded-xl px-2 font-semibold uppercase text-white;
+    @apply flex items-center rounded-xl px-3 py-1 text-sm font-semibold uppercase leading-tight text-white;
+  }
+
+  .button {
+    @apply bg-aquaHaze text-breakerBay shadow-outerSpace hover:bg-breakerBay hover:text-aquaSpring rounded-xl px-6 py-3 font-bold shadow-lg transition duration-300 ease-in-out;
+  }
+
+  .button_action {
+    @apply hover:bg-blueSmoke text-aquaSpring bg-breakerBay rounded-xl px-8 py-4 text-xl shadow-lg transition duration-300 ease-out;
+  }
+
+  input, textarea {
+    @apply border-blueSmoke bg-aquaSpring w-full rounded-lg border-2 p-2;
+  }
+
+  input[type="radio"] {
+    @apply w-5 h-5 border-blueSmoke bg-aquaSpring mx-1 text-breakerBay;
+  }
+  
+
+  label {
+    @apply text-breakerBay mr-3 text-xl italic self-center;
+  }
+
+  select {
+    @apply border-outerSpace bg-aquaSpring w-full rounded-lg border-2 border-none;
   }
 }

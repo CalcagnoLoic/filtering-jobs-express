@@ -13,10 +13,11 @@ const Component = () => {
       {isLoading && <Loader />}
 
       {isData &&
+        Array.isArray(isData) &&
         isData.map((data) => (
           <div
             key={data.id}
-            className={`shadow-blueSmoke md:mx-12 xl:mx-52 my-5 flex rounded-xl bg-white p-8 shadow-lg ${data.isFeatured.data[0] == 1 && "border-l-breakerBay border-l-4"} `}
+            className={`shadow-blueSmoke mb-5 flex rounded-xl bg-white p-8 shadow-lg md:mx-12 xl:mx-52 ${data.isFeatured.data[0] == 1 && "border-l-breakerBay border-l-4"} `}
           >
             <img src={data.url} alt={data.name} className="mr-10" />
             <div className="flex w-full justify-between">
@@ -29,6 +30,7 @@ const Component = () => {
                   location={data.location}
                   newJob={data.isNew.data[0]}
                   feature={data.isFeatured.data[0]}
+                  id={data.id}
                 />
               </div>
 

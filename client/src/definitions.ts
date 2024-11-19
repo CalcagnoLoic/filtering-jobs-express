@@ -22,13 +22,14 @@ export type JobInformations = {
 };
 
 export type Details = {
-  name: string;
+  name?: string;
   position: string;
   time: string;
   contract: string;
   location: string;
-  newJob: number;
-  feature: number;
+  newJob?: number;
+  feature?: number;
+  id?: number
 };
 
 export type Hashtag = {
@@ -36,4 +37,17 @@ export type Hashtag = {
   level: string;
   languages: string;
   tools: string;
+};
+
+export type JobDetails = {
+  name: string;
+  position: string;
+  location: string;
+  contract: string;
+  time: string;
+  url: string;
+  id_jobs: number;
+  description_jobs: string;
+  responsabilities: string;
+  benefits: string;
 };

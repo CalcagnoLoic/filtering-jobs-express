@@ -26,11 +26,13 @@ const Component = ({ role, level, languages, tools }: Hashtag) => (
       </div>
     ) : null}
 
-    <img
-      src={deleteOffer}
-      alt="Delete offer"
-      className="bg-torchRed self-center rounded-full p-3"
-    />
+    <button>
+      <img
+        src={deleteOffer}
+        alt="Delete offer"
+        className="bg-torchRed self-center rounded-full p-3"
+      />
+    </button>
   </div>
 );
 
