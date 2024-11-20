@@ -29,9 +29,29 @@ const Component = () => {
     setFormData((previousData) => ({ ...previousData, [name]: value }));
   };
 
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const data = formData;
+
+    console.log("FormData being sent: ", data); // Ajoute ce log
+
+    try {
+      const response = await fetch("http://localhost:3000/new-offer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      console.log("Offer submitted: ", result);
+    } catch (error) {
+      console.log("Error when submitting form: ", error);
+    }
+  };
+
   return (
     <form
       action="/"
+      onSubmit={handleSubmit}
       className="mb-5 rounded-xl bg-white p-8 shadow-xl md:mx-12 xl:mx-52"
     >
       <h1 className="text-breakerBay mb-10 text-center text-3xl font-semibold italic underline">

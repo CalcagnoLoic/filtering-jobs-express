@@ -5,6 +5,7 @@ import cors from "cors";
 
 const app = express();
 
+
 const corsOptions = {
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -12,6 +13,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 
 app.use("/", routerJobs);
 app.use("/job-details", routerDetails);

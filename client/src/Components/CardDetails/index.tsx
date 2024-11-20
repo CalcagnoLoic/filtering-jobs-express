@@ -11,7 +11,6 @@ const Component = ({
   feature,
   id,
 }: Details) => {
-  console.log(newJob);
 
   return (
     <div>
