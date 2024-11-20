@@ -5,6 +5,7 @@ import JobDetailsCompany from "./JobDetailsCompany";
 import JobDetailsOffer from "./JobDetailsOffer";
 import JobStatus from "./JobStatus";
 import JobTags from "./JobTags";
+import { useNavigate } from "react-router-dom";
 
 const Component = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,8 @@ const Component = () => {
     benefits: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (name: any, value: any) => {
     setFormData((previousData) => ({ ...previousData, [name]: value }));
   };
@@ -33,7 +36,15 @@ const Component = () => {
     e.preventDefault();
     const data = formData;
 
-    console.log("FormData being sent: ", data); // Ajoute ce log
+    const isFormValid = Object.values(formData).every(
+      (value) => value !== "" && value !== null,
+    );
+
+    if (!isFormValid) {
+      console.error("Error: All fields must be filled.");
+      alert("Please fill in all required fields before submitting.");
+      return; // Empêche l'envoi
+    }
 
     try {
       const response = await fetch("http://localhost:3000/new-offer", {
@@ -43,6 +54,7 @@ const Component = () => {
       });
       const result = await response.json();
       console.log("Offer submitted: ", result);
+      navigate("/");
     } catch (error) {
       console.log("Error when submitting form: ", error);
     }
