@@ -29,7 +29,13 @@ const Component = ({ formData, onChange }: FormChange) => {
 
       <div className="flex py-4">
         <label htmlFor="location">Location: </label>
-        <select name="location" id="location" value={formData.location} onChange={e=> onChange("location", e.target.value)}>
+        <select
+          name="location"
+          id="location"
+          defaultValue={"Remote"}
+          value={formData.location}
+          onChange={(e) => onChange("location", e.target.value)}
+        >
           <option value="USA Only">USA Only</option>
           <option value="UK Only">UK Only</option>
           <option value="Worldwide">Worldwide</option>
@@ -54,6 +60,7 @@ const Component = ({ formData, onChange }: FormChange) => {
         <select
           name="contract"
           id="contract"
+          defaultValue={"Part Time"}
           value={formData.contract}
           onChange={(e) => onChange("contract", e.target.value)}
         >

@@ -9,6 +9,7 @@ const Component = ({ formData, onChange }: FormChange) => {
           type="radio"
           name="isNew"
           id="isNewNo"
+          defaultChecked
           value={0}
           checked={formData.isNew === 0}
           onChange={(e) => onChange("isNew", parseInt(e.target.value))}
@@ -30,6 +31,7 @@ const Component = ({ formData, onChange }: FormChange) => {
           type="radio"
           name="isFeatured"
           id="isFeaturedNo"
+          defaultChecked
           value={0}
           checked={formData.isFeatured === 0}
           onChange={(e) => onChange("isFeatured", parseInt(e.target.value))}

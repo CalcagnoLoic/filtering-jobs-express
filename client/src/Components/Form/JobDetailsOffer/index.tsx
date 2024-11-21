@@ -20,6 +20,7 @@ const Component = ({ formData, onChange }: FormChange) => {
         <select
           name="level"
           id="level"
+          defaultValue={"Junior"}
           value={formData.level}
           onChange={(e) => onChange("level", e.target.value)}
         >
@@ -34,6 +35,7 @@ const Component = ({ formData, onChange }: FormChange) => {
         <select
           name="role"
           id="role"
+          defaultValue={"Frontend"}
           value={formData.role}
           onChange={(e) => onChange("role", e.target.value)}
         >

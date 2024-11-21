@@ -1,5 +1,4 @@
 import { Hashtag } from "../../definitions";
-import deleteOffer from "../../../public/images/icon-remove.svg";
 
 const Component = ({ role, level, languages, tools }: Hashtag) => (
   <div className="text-breakerBay flex gap-5 self-center font-semibold">
@@ -25,14 +24,6 @@ const Component = ({ role, level, languages, tools }: Hashtag) => (
         )}
       </div>
     ) : null}
-
-    <button>
-      <img
-        src={deleteOffer}
-        alt="Delete offer"
-        className="bg-torchRed self-center rounded-full p-3"
-      />
-    </button>
   </div>
 );
 

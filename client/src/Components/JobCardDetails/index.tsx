@@ -4,6 +4,7 @@ import ErrorServer from "../ErrorServer";
 import Loader from "../Loader";
 import { useFetchJobOffers } from "../../hooks/useFetchDetails";
 import BulletPoint from "../BulletPoint";
+import DeleteOffer from "../DeleteOffer";
 
 const Component = ({ id }: { id: string }) => {
   const { isData, isLoading, isError } = useFetchJobOffers(id as string);
@@ -23,16 +24,19 @@ const Component = ({ id }: { id: string }) => {
   return (
     <>
       <div className="shadow-blueSmoke my-5 flex flex-col rounded-xl bg-white p-10 shadow-lg md:mx-12 xl:mx-52">
-        <div className="flex">
-          <img src={"/public/" + isData[0].url} alt={isData[0].name} />
-          <div className="ml-8">
-            <CardDetails
-              position={isData[0].position}
-              time={isData[0].time}
-              contract={isData[0].contract}
-              location={isData[0].location}
-            />
+        <div className="flex justify-between">
+          <div className="flex">
+            <img src={"/public/" + isData[0].url} alt={isData[0].name} />
+            <div className="ml-8">
+              <CardDetails
+                position={isData[0].position}
+                time={isData[0].time}
+                contract={isData[0].contract}
+                location={isData[0].location}
+              />
+            </div>
           </div>
+          <DeleteOffer id={id} />
         </div>
 
         <h1 className="text-breakerBay mt-8 text-3xl underline">

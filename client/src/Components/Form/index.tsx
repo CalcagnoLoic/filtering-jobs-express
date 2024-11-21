@@ -57,6 +57,7 @@ const Component = () => {
       navigate("/");
     } catch (error) {
       console.log("Error when submitting form: ", error);
+      alert("An error occurred while submitting the offer.");
     }
   };
 
@@ -79,6 +80,7 @@ const Component = () => {
       <button type="submit" className="button_action mx-auto my-5 block w-1/2">
         Add this new offer
       </button>
+      <span  className="text-torchRed text-lg font-semibold italic underline">* All the fields are required</span>
     </form>
   );
 };

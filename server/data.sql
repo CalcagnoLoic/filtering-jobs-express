@@ -14,7 +14,7 @@ CREATE TABLE `description` (
   `responsabilities` text NOT NULL,
   `benefits` text NOT NULL,
   PRIMARY KEY (`id_jobs`),
-  CONSTRAINT `description_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
+  CONSTRAINT `description_ibfk_2` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `description` (`id_jobs`, `description_jobs`, `responsabilities`, `benefits`) VALUES
@@ -27,14 +27,14 @@ INSERT INTO `description` (`id_jobs`, `description_jobs`, `responsabilities`, `b
 (7,	'Shortly is seeking a Junior Developer to bring creative solutions to life. If you are proficient in HTML, JavaScript, and Sass, and are eager to expand your skills, this is the perfect opportunity to start your career.',	'Develop and test features for our web platform.\r\nImplement design mockups into responsive code.\r\nCollaborate with senior developers on feature delivery.',	'$40,000 - $60,000/year.\r\nRemote-first approach with flexible working hours.\r\nPaid learning resources and mentorship programs.\r\nEquity options for long-term team members.'),
 (8,	'Join Insure as a Junior Frontend Developer and create visually stunning, high-performing interfaces using JavaScript, Vue.js, and Sass. Be part of a company transforming the insurance industry.',	'Develop sleek, modern UI components.\r\nOptimize web performance for cross-device compatibility.\r\nCollaborate closely with the design and backend teams.',	'$50,000 - $70,000/year.\r\nStock options and annual bonuses.\r\nComprehensive medical and dental insurance.\r\nGym membership and monthly wellness stipends.'),
 (9,	'Eyecam Co. is hiring a Full Stack Engineer to build and enhance scalable web solutions. Using JavaScript, Python, and Django, you’ll work on innovative tech solutions impacting millions globally.',	'Build robust, maintainable systems.\r\nCollaborate on API development and integrations.\r\nOptimize existing applications for better performance.',	'$90,000 - $110,000/year.\r\nFlexible PTO and remote work.\r\nHome office budget and tech allowance.\r\nLearning and development stipend.\r\n'),
-(10,	'The Air Filter Company is looking for a Front-end Developer to design and develop engaging interfaces using JavaScript, React, and Sass. This part-time role is ideal for a junior developer looking to make an impact in a fast-paced environment.',	'Create and maintain responsive web components.\r\nCollaborate on UI/UX designs and prototypes.\r\nDebug and troubleshoot interface issues.',	'$25-$40/hour.\r\nRemote-friendly environment.\r\nAnnual tech stipend for software and hardware upgrades.\r\nFlexible hours tailored to your schedule.');
+(10,	'The Air Filter Company is looking for a Front-end Developer to design and develop engaging interfaces using JavaScript, React, and Sass. This part-time role is ideal for a junior developer looking to make an impact in a fast-paced environment.',	'Create and maintain responsive web components.\r\nCollaborate on UI/UX designs and prototypes.\r\nDebug and troubleshoot interface issues.',	'$25-$40/hour.\r\nRemote-friendly environment.\r\nAnnual tech stipend for software and hardware upgrades.\r\nFlexible hours tailored to your schedule.')
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
   `id_jobs` int(11) NOT NULL,
   `url` varchar(128) NOT NULL,
   KEY `id_jobs` (`id_jobs`),
-  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
+  CONSTRAINT `images_ibfk_2` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `images` (`id_jobs`, `url`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `images` (`id_jobs`, `url`) VALUES
 (7,	'./images/shortly.svg'),
 (8,	'./images/insure.svg'),
 (9,	'./images/eyecam-co.svg'),
-(10,	'./images/the-air-filter-company.svg');
+(10,	'./images/the-air-filter-company.svg')
 
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
@@ -72,7 +72,7 @@ INSERT INTO `jobs` (`id`, `name`, `location`, `time`, `contract`, `level`, `posi
 (7,	'Shortly',	'Worldwide',	'2w ago',	'Full Time',	'Junior',	'Junior Developer',	'Frontend'),
 (8,	'Insure',	'USA Only',	'2w ago',	'Full Time',	'Junior',	'Junior Frontend Developer',	'Frontend'),
 (9,	'Eyecam Co.',	'Worldwide',	'3w ago',	'Full Time',	'Midweight',	'Full Stack Engineer',	'Fullstack'),
-(10,	'The Air Filter Company',	'Worldwide',	'1mo ago',	'Part Time',	'Junior',	'Front-end Dev',	'Frontend');
+(10,	'The Air Filter Company',	'Worldwide',	'1mo ago',	'Part Time',	'Junior',	'Front-end Dev',	'Frontend')
 
 DROP TABLE IF EXISTS `status`;
 CREATE TABLE `status` (
@@ -80,7 +80,7 @@ CREATE TABLE `status` (
   `isNew` bit(1) NOT NULL,
   `isFeatured` bit(1) NOT NULL,
   KEY `id_jobs` (`id_jobs`),
-  CONSTRAINT `status_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
+  CONSTRAINT `status_ibfk_2` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `status` (`id_jobs`, `isNew`, `isFeatured`) VALUES
@@ -93,7 +93,7 @@ INSERT INTO `status` (`id_jobs`, `isNew`, `isFeatured`) VALUES
 (7,	CONV('0', 2, 10) + 0,	CONV('0', 2, 10) + 0),
 (8,	CONV('0', 2, 10) + 0,	CONV('0', 2, 10) + 0),
 (9,	CONV('0', 2, 10) + 0,	CONV('0', 2, 10) + 0),
-(10,	CONV('0', 2, 10) + 0,	CONV('0', 2, 10) + 0);
+(10,	CONV('0', 2, 10) + 0,	CONV('0', 2, 10) + 0)
 
 DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
@@ -101,7 +101,7 @@ CREATE TABLE `tags` (
   `tools` varchar(255) NOT NULL,
   `languages` varchar(255) NOT NULL,
   PRIMARY KEY (`id_jobs`),
-  CONSTRAINT `tags_ibfk_1` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`)
+  CONSTRAINT `tags_ibfk_2` FOREIGN KEY (`id_jobs`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `tags` (`id_jobs`, `tools`, `languages`) VALUES
@@ -114,6 +114,6 @@ INSERT INTO `tags` (`id_jobs`, `tools`, `languages`) VALUES
 (7,	'[\"Sass\"]',	'[\"HTML\", \"JavaScript\"]'),
 (8,	'[\"Vue\", \"Sass\"]',	'[\"JavaScript\"]'),
 (9,	'[\"Django\"]',	'[\"JavaScript\", \"Python\"]'),
-(10,	'[\"React\", \"Sass\"]',	'[\"JavaScript\"]');
+(10,	'[\"React\", \"Sass\"]',	'[\"JavaScript\"]')
 
--- 2024-11-19 10:41:02
+-- 2024-11-21 11:18:16
